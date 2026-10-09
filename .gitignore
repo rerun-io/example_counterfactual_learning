@@ -1,0 +1,20 @@
+# fetched and patched by scripts/setup.sh
+act/
+# environment
+.venv/
+.uv-python/
+.cache/
+__pycache__/
+*.egg-info/
+# generated data, checkpoints, recordings and results
+data/
+data_smoke/
+data_real/
+ckpts/
+rerun/
+rerun_smoke/
+results/
+*.rrd
+*.hdf5
+*.ckpt
+.DS_Store

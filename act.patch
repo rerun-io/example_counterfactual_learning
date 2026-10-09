@@ -1,0 +1,610 @@
+diff --git a/assets/bimanual_viperx_transfer_cube_nuisance.xml b/assets/bimanual_viperx_transfer_cube_nuisance.xml
+new file mode 100644
+index 0000000..f4f0870
+--- /dev/null
++++ b/assets/bimanual_viperx_transfer_cube_nuisance.xml
+@@ -0,0 +1,53 @@
++<mujoco>
++    <!-- cfnbc: copy of bimanual_viperx_transfer_cube.xml + hidden nuisance geoms. Physics must match the original. -->
++    <include file="scene.xml"/>
++    <include file="vx300s_dependencies.xml"/>
++    <worldbody>
++        <include file="vx300s_left.xml" />
++        <include file="vx300s_right.xml" />
++
++        <body name="box" pos="0.2 0.5 0.05">
++            <joint name="red_box_joint" type="free" frictionloss="0.01" />
++            <inertial pos="0 0 0" mass="0.05" diaginertia="0.002 0.002 0.002" />
++            <geom condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" pos="0 0 0" size="0.02 0.02 0.02" type="box" name="red_box" rgba="1 0 0 1" />
++        </body>
++
++        <!-- cfnbc nuisance geoms: visual only (contype/conaffinity 0, static bodies), hidden in geom group 4
++             until cfnbc.nuisance.apply() moves them to group 1 and places them relative to the cube. -->
++        <body name="nuis_support" pos="0 0.5 0">
++            <geom name="nuis_support" type="box" size="0.05 0.05 0.0005" pos="0 0 0.0006" rgba="0.45 0.45 0.45 1" group="4" contype="0" conaffinity="0" />
++        </body>
++        <body name="nuis_distractor_0" pos="0 0.5 0"><geom name="nuis_distractor_0" type="box" size="0.012 0.012 0.012" pos="0 0 0.012" rgba="0.1 0.6 1 1" group="4" contype="0" conaffinity="0" /></body>
++        <body name="nuis_distractor_1" pos="0 0.5 0"><geom name="nuis_distractor_1" type="box" size="0.012 0.012 0.012" pos="0 0 0.012" rgba="0.1 0.6 1 1" group="4" contype="0" conaffinity="0" /></body>
++        <body name="nuis_distractor_2" pos="0 0.5 0"><geom name="nuis_distractor_2" type="box" size="0.012 0.012 0.012" pos="0 0 0.012" rgba="0.1 0.6 1 1" group="4" contype="0" conaffinity="0" /></body>
++        <body name="nuis_distractor_3" pos="0 0.5 0"><geom name="nuis_distractor_3" type="box" size="0.012 0.012 0.012" pos="0 0 0.012" rgba="0.1 0.6 1 1" group="4" contype="0" conaffinity="0" /></body>
++
++    </worldbody>
++
++    <actuator>
++        <position ctrllimited="true" ctrlrange="-3.14158 3.14158" joint="vx300s_left/waist" kp="800"  user="1" forcelimited="true" forcerange="-150 150"/>
++        <position ctrllimited="true" ctrlrange="-1.85005 1.25664" joint="vx300s_left/shoulder" kp="1600"  user="1" forcelimited="true" forcerange="-300 300"/>
++        <position ctrllimited="true" ctrlrange="-1.76278 1.6057" joint="vx300s_left/elbow" kp="800"  user="1" forcelimited="true" forcerange="-100 100"/>
++        <position ctrllimited="true" ctrlrange="-3.14158 3.14158" joint="vx300s_left/forearm_roll" kp="10"  user="1" forcelimited="true" forcerange="-100 100"/>
++        <position ctrllimited="true" ctrlrange="-1.8675 2.23402" joint="vx300s_left/wrist_angle" kp="50"  user="1"/>
++        <position ctrllimited="true" ctrlrange="-3.14158 3.14158" joint="vx300s_left/wrist_rotate" kp="20"  user="1"/>
++        <position ctrllimited="true" ctrlrange="0.021 0.057" joint="vx300s_left/left_finger" kp="200"  user="1"/>
++        <position ctrllimited="true" ctrlrange="-0.057 -0.021" joint="vx300s_left/right_finger" kp="200"  user="1"/>
++
++        <position ctrllimited="true" ctrlrange="-3.14158 3.14158" joint="vx300s_right/waist" kp="800"  user="1" forcelimited="true" forcerange="-150 150"/>
++        <position ctrllimited="true" ctrlrange="-1.85005 1.25664" joint="vx300s_right/shoulder" kp="1600"  user="1" forcelimited="true" forcerange="-300 300"/>
++        <position ctrllimited="true" ctrlrange="-1.76278 1.6057" joint="vx300s_right/elbow" kp="800"  user="1" forcelimited="true" forcerange="-100 100"/>
++        <position ctrllimited="true" ctrlrange="-3.14158 3.14158" joint="vx300s_right/forearm_roll" kp="10"  user="1" forcelimited="true" forcerange="-100 100"/>
++        <position ctrllimited="true" ctrlrange="-1.8675 2.23402" joint="vx300s_right/wrist_angle" kp="50"  user="1"/>
++        <position ctrllimited="true" ctrlrange="-3.14158 3.14158" joint="vx300s_right/wrist_rotate" kp="20"  user="1"/>
++        <position ctrllimited="true" ctrlrange="0.021 0.057" joint="vx300s_right/left_finger" kp="200"  user="1"/>
++        <position ctrllimited="true" ctrlrange="-0.057 -0.021" joint="vx300s_right/right_finger" kp="200"  user="1"/>
++
++    </actuator>
++
++    <keyframe>
++        <key qpos="0 -0.96 1.16 0 -0.3 0 0.024 -0.024  0 -0.96 1.16 0 -0.3 0 0.024 -0.024  0.2 0.5 0.05 1 0 0 0"/>
++    </keyframe>
++
++
++</mujoco>
+\ No newline at end of file
+diff --git a/constants.py b/constants.py
+index f445350..59afe22 100644
+--- a/constants.py
++++ b/constants.py
+@@ -1,7 +1,8 @@
++import os
+ import pathlib
+ 
+ ### Task parameters
+-DATA_DIR = '<put your data dir here>'
++DATA_DIR = os.environ.get('ACT_DATA_DIR', str(pathlib.Path(__file__).parent.parent.resolve() / 'data'))
+ SIM_TASK_CONFIGS = {
+     'sim_transfer_cube_scripted':{
+         'dataset_dir': DATA_DIR + '/sim_transfer_cube_scripted',
+diff --git a/detr/main.py b/detr/main.py
+index 3c4a339..1a5592b 100644
+--- a/detr/main.py
++++ b/detr/main.py
+@@ -1,5 +1,6 @@
+ # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
+ import argparse
++import os
+ from pathlib import Path
+ 
+ import numpy as np
+@@ -63,6 +64,11 @@ def get_args_parser():
+     parser.add_argument('--kl_weight', action='store', type=int, help='KL Weight', required=False)
+     parser.add_argument('--chunk_size', action='store', type=int, help='chunk_size', required=False)
+     parser.add_argument('--temporal_agg', action='store_true')
++    parser.add_argument('--device', action='store', type=str, default=os.environ.get('ACT_DEVICE', 'mps'))
++    parser.add_argument('--num_rollouts', action='store', type=int)
++    parser.add_argument('--eval_seed', action='store', type=int)
++    parser.add_argument('--eval_ckpt_names', action='store', type=str, nargs='+')
++    parser.add_argument('--no_save_video', action='store_true')
+ 
+     return parser
+ 
+@@ -75,7 +81,7 @@ def build_ACT_model_and_optimizer(args_override):
+         setattr(args, k, v)
+ 
+     model = build_ACT_model(args)
+-    model.cuda()
++    model.to(args.device)
+ 
+     param_dicts = [
+         {"params": [p for n, p in model.named_parameters() if "backbone" not in n and p.requires_grad]},
+@@ -98,7 +104,7 @@ def build_CNNMLP_model_and_optimizer(args_override):
+         setattr(args, k, v)
+ 
+     model = build_CNNMLP_model(args)
+-    model.cuda()
++    model.to(args.device)
+ 
+     param_dicts = [
+         {"params": [p for n, p in model.named_parameters() if "backbone" not in n and p.requires_grad]},
+diff --git a/imitate_episodes.py b/imitate_episodes.py
+index 34f9a37..21d7e3a 100644
+--- a/imitate_episodes.py
++++ b/imitate_episodes.py
+@@ -17,6 +17,7 @@ from policy import ACTPolicy, CNNMLPPolicy
+ from visualize_episodes import save_videos
+ 
+ from sim_env import BOX_POSE
++from cfnbc.act_hooks import make_train_logger, make_rollout_logger, enabled as rerun_enabled # no-op unless ACT_RERUN=1
+ 
+ import IPython
+ e = IPython.embed
+@@ -32,6 +33,7 @@ def main(args):
+     batch_size_train = args['batch_size']
+     batch_size_val = args['batch_size']
+     num_epochs = args['num_epochs']
++    device = torch.device(args['device'])
+ 
+     # get task parameters
+     is_sim = task_name[:4] == 'sim_'
+@@ -85,14 +87,18 @@ def main(args):
+         'seed': args['seed'],
+         'temporal_agg': args['temporal_agg'],
+         'camera_names': camera_names,
+-        'real_robot': not is_sim
++        'real_robot': not is_sim,
++        'device': device,
++        'num_rollouts': args['num_rollouts'],
++        'eval_seed': args['eval_seed'],
++        'save_video': not args['no_save_video'],
+     }
+ 
+     if is_eval:
+-        ckpt_names = [f'policy_best.ckpt']
++        ckpt_names = args['eval_ckpt_names']
+         results = []
+         for ckpt_name in ckpt_names:
+-            success_rate, avg_return = eval_bc(config, ckpt_name, save_episode=True)
++            success_rate, avg_return = eval_bc(config, ckpt_name, save_episode=config['save_video'])
+             results.append([ckpt_name, success_rate, avg_return])
+ 
+         for ckpt_name, success_rate, avg_return in results:
+@@ -138,18 +144,19 @@ def make_optimizer(policy_class, policy):
+     return optimizer
+ 
+ 
+-def get_image(ts, camera_names):
++def get_image(ts, camera_names, device):
+     curr_images = []
+     for cam_name in camera_names:
+         curr_image = rearrange(ts.observation['images'][cam_name], 'h w c -> c h w')
+         curr_images.append(curr_image)
+     curr_image = np.stack(curr_images, axis=0)
+-    curr_image = torch.from_numpy(curr_image / 255.0).float().cuda().unsqueeze(0)
++    curr_image = torch.from_numpy(curr_image / 255.0).float().to(device).unsqueeze(0)
+     return curr_image
+ 
+ 
+ def eval_bc(config, ckpt_name, save_episode=True):
+-    set_seed(1000)
++    set_seed(config['eval_seed'])
++    device = config['device']
+     ckpt_dir = config['ckpt_dir']
+     state_dim = config['state_dim']
+     real_robot = config['real_robot']
+@@ -165,9 +172,9 @@ def eval_bc(config, ckpt_name, save_episode=True):
+     # load policy and stats
+     ckpt_path = os.path.join(ckpt_dir, ckpt_name)
+     policy = make_policy(policy_class, policy_config)
+-    loading_status = policy.load_state_dict(torch.load(ckpt_path))
++    loading_status = policy.load_state_dict(torch.load(ckpt_path, map_location=device))
+     print(loading_status)
+-    policy.cuda()
++    policy.to(device)
+     policy.eval()
+     print(f'Loaded: {ckpt_path}')
+     stats_path = os.path.join(ckpt_dir, f'dataset_stats.pkl')
+@@ -195,18 +202,22 @@ def eval_bc(config, ckpt_name, save_episode=True):
+ 
+     max_timesteps = int(max_timesteps * 1) # may increase for real-world tasks
+ 
+-    num_rollouts = 50
++    num_rollouts = config['num_rollouts']
++    # draw all initial object poses up front from the eval seed (same sequence as drawing them per rollout)
++    if 'sim_transfer_cube' in task_name:
++        init_poses = [sample_box_pose() for _ in range(num_rollouts)]
++    elif 'sim_insertion' in task_name:
++        init_poses = [np.concatenate(sample_insertion_pose()) for _ in range(num_rollouts)]
++    rlog = make_rollout_logger(config, ckpt_name)
+     episode_returns = []
+     highest_rewards = []
+     for rollout_id in range(num_rollouts):
+         rollout_id += 0
+         ### set task
+-        if 'sim_transfer_cube' in task_name:
+-            BOX_POSE[0] = sample_box_pose() # used in sim reset
+-        elif 'sim_insertion' in task_name:
+-            BOX_POSE[0] = np.concatenate(sample_insertion_pose()) # used in sim reset
++        BOX_POSE[0] = init_poses[rollout_id] # used in sim reset
+ 
+         ts = env.reset()
++        rlog.start(rollout_id, init_poses[rollout_id])
+ 
+         ### onscreen render
+         if onscreen_render:
+@@ -216,9 +227,9 @@ def eval_bc(config, ckpt_name, save_episode=True):
+ 
+         ### evaluation loop
+         if temporal_agg:
+-            all_time_actions = torch.zeros([max_timesteps, max_timesteps+num_queries, state_dim]).cuda()
++            all_time_actions = torch.zeros([max_timesteps, max_timesteps+num_queries, state_dim]).to(device)
+ 
+-        qpos_history = torch.zeros((1, max_timesteps, state_dim)).cuda()
++        qpos_history = torch.zeros((1, max_timesteps, state_dim)).to(device)
+         image_list = [] # for visualization
+         qpos_list = []
+         target_qpos_list = []
+@@ -239,14 +250,17 @@ def eval_bc(config, ckpt_name, save_episode=True):
+                     image_list.append({'main': obs['image']})
+                 qpos_numpy = np.array(obs['qpos'])
+                 qpos = pre_process(qpos_numpy)
+-                qpos = torch.from_numpy(qpos).float().cuda().unsqueeze(0)
++                qpos = torch.from_numpy(qpos).float().to(device).unsqueeze(0)
+                 qpos_history[:, t] = qpos
+-                curr_image = get_image(ts, camera_names)
++                curr_image = get_image(ts, camera_names, device)
+ 
+                 ### query policy
+                 if config['policy_class'] == "ACT":
+                     if t % query_frequency == 0:
+                         all_actions = policy(qpos, curr_image)
++                        chunk = post_process(all_actions[0].cpu().numpy()) if rerun_enabled() else None
++                    else:
++                        chunk = None
+                     if temporal_agg:
+                         all_time_actions[[t], t:t+num_queries] = all_actions
+                         actions_for_curr_step = all_time_actions[:, t]
+@@ -255,7 +269,7 @@ def eval_bc(config, ckpt_name, save_episode=True):
+                         k = 0.01
+                         exp_weights = np.exp(-k * np.arange(len(actions_for_curr_step)))
+                         exp_weights = exp_weights / exp_weights.sum()
+-                        exp_weights = torch.from_numpy(exp_weights).cuda().unsqueeze(dim=1)
++                        exp_weights = torch.from_numpy(exp_weights).float().to(device).unsqueeze(dim=1) # float32: MPS has no float64
+                         raw_action = (actions_for_curr_step * exp_weights).sum(dim=0, keepdim=True)
+                     else:
+                         raw_action = all_actions[:, t % query_frequency]
+@@ -270,7 +284,9 @@ def eval_bc(config, ckpt_name, save_episode=True):
+                 target_qpos = action
+ 
+                 ### step the environment
++                obs_t = ts.observation
+                 ts = env.step(target_qpos)
++                rlog.step(t, obs_t, env.physics, target_qpos, chunk if config['policy_class'] == 'ACT' else None, ts.reward)
+ 
+                 ### for visualization
+                 qpos_list.append(qpos_numpy)
+@@ -287,6 +303,7 @@ def eval_bc(config, ckpt_name, save_episode=True):
+         episode_returns.append(episode_return)
+         episode_highest_reward = np.max(rewards)
+         highest_rewards.append(episode_highest_reward)
++        rlog.end(episode_highest_reward, episode_highest_reward == env_max_reward)
+         print(f'Rollout {rollout_id}\n{episode_return=}, {episode_highest_reward=}, {env_max_reward=}, Success: {episode_highest_reward==env_max_reward}')
+ 
+         if save_episode:
+@@ -303,7 +320,15 @@ def eval_bc(config, ckpt_name, save_episode=True):
+     print(summary_str)
+ 
+     # save success rate to txt
+-    result_file_name = 'result_' + ckpt_name.split('.')[0] + '.txt'
++    result_tag = ckpt_name.split('.')[0] + ('_tagg' if temporal_agg else '_notagg') + f'_seed{config["eval_seed"]}_n{num_rollouts}'
++    if os.environ.get('ACT_NUISANCE'):
++        result_tag += '_' + os.environ['ACT_NUISANCE']
++    with open(os.path.join(ckpt_dir, f'rollouts_{result_tag}.csv'), 'w') as f:
++        f.write('rollout_id,init_pose,episode_return,highest_reward,success\n')
++        for i in range(num_rollouts):
++            pose_str = ' '.join(f'{x:.8f}' for x in init_poses[i])
++            f.write(f'{i},{pose_str},{episode_returns[i]},{highest_rewards[i]},{int(highest_rewards[i] == env_max_reward)}\n')
++    result_file_name = 'result_' + result_tag + '.txt'
+     with open(os.path.join(ckpt_dir, result_file_name), 'w') as f:
+         f.write(summary_str)
+         f.write(repr(episode_returns))
+@@ -313,9 +338,9 @@ def eval_bc(config, ckpt_name, save_episode=True):
+     return success_rate, avg_return
+ 
+ 
+-def forward_pass(data, policy):
++def forward_pass(data, policy, device):
+     image_data, qpos_data, action_data, is_pad = data
+-    image_data, qpos_data, action_data, is_pad = image_data.cuda(), qpos_data.cuda(), action_data.cuda(), is_pad.cuda()
++    image_data, qpos_data, action_data, is_pad = image_data.to(device), qpos_data.to(device), action_data.to(device), is_pad.to(device)
+     return policy(qpos_data, image_data, action_data, is_pad) # TODO remove None
+ 
+ 
+@@ -325,12 +350,14 @@ def train_bc(train_dataloader, val_dataloader, config):
+     seed = config['seed']
+     policy_class = config['policy_class']
+     policy_config = config['policy_config']
++    device = config['device']
+ 
+     set_seed(seed)
+ 
+     policy = make_policy(policy_class, policy_config)
+-    policy.cuda()
++    policy.to(device)
+     optimizer = make_optimizer(policy_class, policy)
++    tlog = make_train_logger(config)
+ 
+     train_history = []
+     validation_history = []
+@@ -343,10 +370,11 @@ def train_bc(train_dataloader, val_dataloader, config):
+             policy.eval()
+             epoch_dicts = []
+             for batch_idx, data in enumerate(val_dataloader):
+-                forward_dict = forward_pass(data, policy)
++                forward_dict = forward_pass(data, policy, device)
+                 epoch_dicts.append(forward_dict)
+             epoch_summary = compute_dict_mean(epoch_dicts)
+             validation_history.append(epoch_summary)
++            tlog.log_epoch(epoch, 'val', epoch_summary)
+ 
+             epoch_val_loss = epoch_summary['loss']
+             if epoch_val_loss < min_val_loss:
+@@ -362,15 +390,17 @@ def train_bc(train_dataloader, val_dataloader, config):
+         policy.train()
+         optimizer.zero_grad()
+         for batch_idx, data in enumerate(train_dataloader):
+-            forward_dict = forward_pass(data, policy)
++            forward_dict = forward_pass(data, policy, device)
+             # backward
+             loss = forward_dict['loss']
+             loss.backward()
+             optimizer.step()
+             optimizer.zero_grad()
+             train_history.append(detach_dict(forward_dict))
++            tlog.log_batch(train_history[-1])
+         epoch_summary = compute_dict_mean(train_history[(batch_idx+1)*epoch:(batch_idx+1)*(epoch+1)])
+         epoch_train_loss = epoch_summary['loss']
++        tlog.log_epoch(epoch, 'train', epoch_summary)
+         print(f'Train loss: {epoch_train_loss:.5f}')
+         summary_string = ''
+         for k, v in epoch_summary.items():
+@@ -389,6 +419,8 @@ def train_bc(train_dataloader, val_dataloader, config):
+     ckpt_path = os.path.join(ckpt_dir, f'policy_epoch_{best_epoch}_seed_{seed}.ckpt')
+     torch.save(best_state_dict, ckpt_path)
+     print(f'Training finished:\nSeed {seed}, val loss {min_val_loss:.6f} at epoch {best_epoch}')
++    tlog.log_best(best_epoch, float(min_val_loss))
++    tlog.close()
+ 
+     # save training curves
+     plot_history(train_history, validation_history, num_epochs, ckpt_dir, seed)
+@@ -431,5 +463,12 @@ if __name__ == '__main__':
+     parser.add_argument('--hidden_dim', action='store', type=int, help='hidden_dim', required=False)
+     parser.add_argument('--dim_feedforward', action='store', type=int, help='dim_feedforward', required=False)
+     parser.add_argument('--temporal_agg', action='store_true')
+-    
++
++    # device / eval options (cfnbc baseline)
++    parser.add_argument('--device', action='store', type=str, default=os.environ.get('ACT_DEVICE', 'mps'), help='torch device (env ACT_DEVICE)')
++    parser.add_argument('--num_rollouts', action='store', type=int, default=100)
++    parser.add_argument('--eval_seed', action='store', type=int, default=1000)
++    parser.add_argument('--eval_ckpt_names', action='store', type=str, nargs='+', default=['policy_last.ckpt'])
++    parser.add_argument('--no_save_video', action='store_true')
++
+     main(vars(parser.parse_args()))
+diff --git a/record_sim_episodes.py b/record_sim_episodes.py
+index 253fdea..695d1bb 100644
+--- a/record_sim_episodes.py
++++ b/record_sim_episodes.py
+@@ -4,6 +4,7 @@ import numpy as np
+ import argparse
+ import matplotlib.pyplot as plt
+ import h5py
++import mujoco
+ 
+ from constants import PUPPET_GRIPPER_POSITION_NORMALIZE_FN, SIM_TASK_CONFIGS
+ from ee_sim_env import make_ee_sim_env
+@@ -27,6 +28,8 @@ def main(args):
+     dataset_dir = args['dataset_dir']
+     num_episodes = args['num_episodes']
+     onscreen_render = args['onscreen_render']
++    keep_failed = args['keep_failed']
++    np.random.seed(args['seed'])
+     inject_noise = False
+     render_cam_name = 'angle'
+ 
+@@ -43,8 +46,12 @@ def main(args):
+         raise NotImplementedError
+ 
+     success = []
+-    for episode_idx in range(num_episodes):
+-        print(f'{episode_idx=}')
++    attempt_log = [] # one row per attempt, including regenerated failures
++    episode_idx = 0
++    attempt_idx = -1
++    while episode_idx < num_episodes:
++        attempt_idx += 1
++        print(f'{episode_idx=} {attempt_idx=}')
+         print('Rollout out EE space scripted policy')
+         # setup the environment
+         env = make_ee_sim_env(task_name)
+@@ -67,6 +74,7 @@ def main(args):
+ 
+         episode_return = np.sum([ts.reward for ts in episode[1:]])
+         episode_max_reward = np.max([ts.reward for ts in episode[1:]])
++        ee_success = int(episode_max_reward == env.task.max_reward)
+         if episode_max_reward == env.task.max_reward:
+             print(f"{episode_idx=} Successful, {episode_return=}")
+         else:
+@@ -95,6 +103,7 @@ def main(args):
+         ts = env.reset()
+ 
+         episode_replay = [ts]
++        sim_states = [get_sim_state(env.physics)] # full physics state aligned with episode_replay
+         # setup plotting
+         if onscreen_render:
+             ax = plt.subplot()
+@@ -104,21 +113,29 @@ def main(args):
+             action = joint_traj[t]
+             ts = env.step(action)
+             episode_replay.append(ts)
++            sim_states.append(get_sim_state(env.physics))
+             if onscreen_render:
+                 plt_img.set_data(ts.observation['images'][render_cam_name])
+                 plt.pause(0.02)
+ 
+         episode_return = np.sum([ts.reward for ts in episode_replay[1:]])
+         episode_max_reward = np.max([ts.reward for ts in episode_replay[1:]])
++        replay_success = int(episode_max_reward == env.task.max_reward)
+         if episode_max_reward == env.task.max_reward:
+-            success.append(1)
+             print(f"{episode_idx=} Successful, {episode_return=}")
+         else:
+-            success.append(0)
+             print(f"{episode_idx=} Failed")
+ 
+         plt.close()
+ 
++        saved = bool(replay_success or keep_failed)
++        attempt_log.append((attempt_idx, episode_idx if saved else -1, ' '.join(f'{x:.8f}' for x in subtask_info),
++                            ee_success, replay_success, episode_max_reward, episode_return))
++        if not saved:
++            print(f'Discarding failed attempt {attempt_idx}, regenerating episode {episode_idx}\n')
++            continue
++        success.append(replay_success)
++
+         """
+         For each timestep:
+         observations
+@@ -146,6 +163,7 @@ def main(args):
+         # len(joint_traj) i.e. actions: max_timesteps
+         # len(episode_replay) i.e. time steps: max_timesteps + 1
+         max_timesteps = len(joint_traj)
++        sim_states = sim_states[:max_timesteps] # same timesteps as the observations saved below
+         while joint_traj:
+             action = joint_traj.pop(0)
+             ts = episode_replay.pop(0)
+@@ -173,10 +191,44 @@ def main(args):
+ 
+             for name, array in data_dict.items():
+                 root[name][...] = array
++
++            # extra (cfnbc): full MuJoCo state per timestep, aligned with /observations, for exact re-rendering
++            root.attrs['mujoco_version'] = mujoco.__version__
++            root.attrs['record_seed'] = args['seed']
++            root.attrs['attempt_idx'] = attempt_idx
++            root.attrs['success'] = replay_success
++            root.attrs['init_env_state'] = subtask_info
++            sim = root.create_group('sim_state')
++            for key in sim_states[0]:
++                sim.create_dataset(key, data=np.stack([st[key] for st in sim_states]))
+         print(f'Saving: {time.time() - t0:.1f} secs\n')
++        episode_idx += 1
+ 
+     print(f'Saved to {dataset_dir}')
+-    print(f'Success: {np.sum(success)} / {len(success)}')
++    print(f'Success: {np.sum(success)} / {len(success)} saved, {len(attempt_log)} attempts')
++
++    log_path = args['success_log'] or os.path.join(dataset_dir, 'demo_success.csv')
++    os.makedirs(os.path.dirname(os.path.abspath(log_path)), exist_ok=True)
++    with open(log_path, 'w') as f:
++        f.write('attempt_idx,episode_idx,init_env_state,ee_success,replay_success,max_reward,episode_return\n')
++        for row in attempt_log:
++            f.write(','.join(str(x) for x in row) + '\n')
++    print(f'Success log: {log_path}')
++
++
++def get_sim_state(physics):
++    """Full physics state; set qpos/qvel/act (+ctrl, mocap) and call mj_forward to restore for rendering."""
++    d = physics.data
++    return {
++        'time': np.array(d.time),
++        'qpos': d.qpos.copy(),         # includes red_box free joint: qpos[16:23] = xyz + quat (wxyz)
++        'qvel': d.qvel.copy(),
++        'act': d.act.copy(),
++        'ctrl': d.ctrl.copy(),
++        'mocap_pos': d.mocap_pos.copy(),
++        'mocap_quat': d.mocap_quat.copy(),
++        'physics_state': physics.get_state().copy(), # dm_control flat state (qpos, qvel, act)
++    }
+ 
+ if __name__ == '__main__':
+     parser = argparse.ArgumentParser()
+@@ -184,6 +236,9 @@ if __name__ == '__main__':
+     parser.add_argument('--dataset_dir', action='store', type=str, help='dataset saving dir', required=True)
+     parser.add_argument('--num_episodes', action='store', type=int, help='num_episodes', required=False)
+     parser.add_argument('--onscreen_render', action='store_true')
++    parser.add_argument('--seed', action='store', type=int, default=0, help='numpy seed for box poses')
++    parser.add_argument('--keep_failed', action='store_true', help='save failed episodes instead of regenerating')
++    parser.add_argument('--success_log', action='store', type=str, default=None, help='csv path (default <dataset_dir>/demo_success.csv)')
+     
+     main(vars(parser.parse_args()))
+ 
+diff --git a/sim_env.py b/sim_env.py
+index b79b935..4a5abe8 100644
+--- a/sim_env.py
++++ b/sim_env.py
+@@ -17,6 +17,10 @@ e = IPython.embed
+ 
+ BOX_POSE = [None] # to be changed from outside
+ 
++# cfnbc: ACT_NUISANCE=<condition> loads the nuisance scene and applies that condition at every reset;
++# ACT_RENDER_CAMS=top,... restricts rendered cameras (default: all three, as upstream).
++RENDER_CAMS = {'top': 'top', 'angle': 'angle', 'vis': 'front_close'}
++
+ def make_sim_env(task_name):
+     """
+     Environment for simulated robot bi-manual manipulation, with joint position control
+@@ -36,9 +40,12 @@ def make_sim_env(task_name):
+                         "images": {"main": (480x640x3)}        # h, w, c, dtype='uint8'
+     """
+     if 'sim_transfer_cube' in task_name:
+-        xml_path = os.path.join(XML_DIR, f'bimanual_viperx_transfer_cube.xml')
++        from cfnbc import nuisance
++        nuisance_name = nuisance.from_env()
++        xml_file = nuisance.NUISANCE_XML if nuisance_name else 'bimanual_viperx_transfer_cube.xml'
++        xml_path = os.path.join(XML_DIR, xml_file)
+         physics = mujoco.Physics.from_xml_path(xml_path)
+-        task = TransferCubeTask(random=False)
++        task = TransferCubeTask(random=False, nuisance_name=nuisance_name)
+         env = control.Environment(physics, task, time_limit=20, control_timestep=DT,
+                                   n_sub_steps=None, flat_observation=False)
+     elif 'sim_insertion' in task_name:
+@@ -107,9 +114,9 @@ class BimanualViperXTask(base.Task):
+         obs['qvel'] = self.get_qvel(physics)
+         obs['env_state'] = self.get_env_state(physics)
+         obs['images'] = dict()
+-        obs['images']['top'] = physics.render(height=480, width=640, camera_id='top')
+-        obs['images']['angle'] = physics.render(height=480, width=640, camera_id='angle')
+-        obs['images']['vis'] = physics.render(height=480, width=640, camera_id='front_close')
++        cams = [c for c in os.environ.get('ACT_RENDER_CAMS', 'top,angle,vis').split(',') if c]
++        for cam in cams:
++            obs['images'][cam] = physics.render(height=480, width=640, camera_id=RENDER_CAMS[cam])
+ 
+         return obs
+ 
+@@ -119,9 +126,10 @@ class BimanualViperXTask(base.Task):
+ 
+ 
+ class TransferCubeTask(BimanualViperXTask):
+-    def __init__(self, random=None):
++    def __init__(self, random=None, nuisance_name=None):
+         super().__init__(random=random)
+         self.max_reward = 4
++        self.nuisance_name = nuisance_name
+ 
+     def initialize_episode(self, physics):
+         """Sets the state of the environment at the start of each episode."""
+@@ -134,6 +142,9 @@ class TransferCubeTask(BimanualViperXTask):
+             physics.named.data.qpos[-7:] = BOX_POSE[0]
+             # print(f"{BOX_POSE=}")
+         super().initialize_episode(physics)
++        if self.nuisance_name:
++            from cfnbc import nuisance
++            nuisance.apply(physics, self.nuisance_name, BOX_POSE[0])
+ 
+     @staticmethod
+     def get_env_state(physics):
+diff --git a/utils.py b/utils.py
+index d90b782..fa6ef8d 100644
+--- a/utils.py
++++ b/utils.py
+@@ -122,8 +122,11 @@ def load_data(dataset_dir, num_episodes, camera_names, batch_size_train, batch_s
+     # construct dataset and dataloader
+     train_dataset = EpisodicDataset(train_indices, dataset_dir, camera_names, norm_stats)
+     val_dataset = EpisodicDataset(val_indices, dataset_dir, camera_names, norm_stats)
+-    train_dataloader = DataLoader(train_dataset, batch_size=batch_size_train, shuffle=True, pin_memory=True, num_workers=1, prefetch_factor=1)
+-    val_dataloader = DataLoader(val_dataset, batch_size=batch_size_val, shuffle=True, pin_memory=True, num_workers=1, prefetch_factor=1)
++    # cfnbc: ACT_NUM_WORKERS overrides upstream num_workers=1 (0 = load in main process, seeded numpy RNG)
++    num_workers = int(os.environ.get('ACT_NUM_WORKERS', 1))
++    loader_kwargs = dict(num_workers=num_workers, prefetch_factor=1) if num_workers > 0 else dict(num_workers=0)
++    train_dataloader = DataLoader(train_dataset, batch_size=batch_size_train, shuffle=True, pin_memory=True, **loader_kwargs)
++    val_dataloader = DataLoader(val_dataset, batch_size=batch_size_val, shuffle=True, pin_memory=True, **loader_kwargs)
+ 
+     return train_dataloader, val_dataloader, norm_stats, train_dataset.is_sim
+ 

@@ -1,0 +1,12 @@
+[project]
+name = "cfnbc"
+version = "0.0.0"
+description = "Rerun example: finding the training data a robot policy is missing (counterfactual action drift, ACT, LeRobot)"
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["cfnbc"]

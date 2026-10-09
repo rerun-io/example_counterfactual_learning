@@ -1,0 +1,21 @@
+selection,method,k,policy_seed,rank,segment_id,condition,family,drift,peak_step,params,pool_size,created_at
+s0_top_drift_k20_v1,top_drift,20,0,0,demo_e022,combo_app3_dis3_lit3_sup3,combo,2.870781660079956,160,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,1,demo_e014,combo_app3_dis3_lit3_sup3,combo,2.7529895305633545,150,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,2,demo_e032,combo_app3_dis3_lit3_sup3,combo,2.7330069541931152,150,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,3,demo_e011,combo_app3_dis3_lit3_sup3,combo,2.7230465412139893,150,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,4,demo_e027,combo_app3_dis3_lit3_sup3,combo,2.430072784423828,140,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,5,demo_e015,combo_app3_dis3_lit3_sup3,combo,2.3820571899414062,150,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,6,demo_e031,combo_app3_dis3_lit3_sup3,combo,2.355391502380371,160,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,7,demo_e028,combo_app3_dis3_lit3_sup3,combo,2.2786431312561035,160,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,8,demo_e026,combo_app3_dis3_lit3_sup3,combo,2.240511417388916,140,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,9,demo_e038,combo_app3_dis3_lit3_sup3,combo,2.2379345893859863,160,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,10,demo_e013,combo_app3_dis3_lit3_sup3,combo,2.233091354370117,160,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,11,demo_e020,combo_app3_dis3_lit3_sup3,combo,2.231149196624756,70,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,12,demo_e005,combo_app3_dis3_lit3_sup3,combo,2.225956439971924,370,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,13,demo_e018,combo_app3_dis3_lit3_sup3,combo,2.167733669281006,160,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,14,demo_e021,combo_app3_dis3_lit3_sup3,combo,2.1367053985595703,370,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,15,demo_e007,combo_app3_dis3_lit3_sup3,combo,2.0609538555145264,170,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,16,demo_e046,combo_app3_dis3_lit3_sup3,combo,2.0373449325561523,370,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,17,demo_e041,combo_app3_dis3_lit3_sup3,combo,2.006509780883789,370,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,18,demo_e001,combo_app3_dis3_lit3_sup3,combo,1.994877815246582,370,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
+s0_top_drift_k20_v1,top_drift,20,0,19,demo_e025,combo_app3_dis3_lit3_sup3,combo,1.965672254562378,370,"{""weighted_coverage"": 0.337104830660262}",550,2026-10-05T14:36:35+00:00
