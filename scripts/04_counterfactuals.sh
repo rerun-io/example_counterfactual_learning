@@ -19,6 +19,7 @@ for SEED in "${SEEDS[@]}"; do
   done
 done
 python -m cfnbc.compute_drift --seeds "${SEEDS[@]}" --conditions "${CONDS[@]}" --rerun_layers --device "$ACT_DEVICE" | grep -E "candidates|table"
+python -m cfnbc.hub sync --datasets cube_rollouts             # register the new rollouts before reading them back
 python -m cfnbc.qa --rollouts | tail -1                        # stable stage, final cube height, strict success
 python -m cfnbc.scene3d --all_rollouts                         # 3D scene for every rollout
 python -m cfnbc.hub sync
