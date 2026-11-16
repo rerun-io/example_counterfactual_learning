@@ -21,6 +21,7 @@ for SEL in "s${S0}_random_k20_v1" "s${S0}_drift_weighted_k20_v1"; do
     echo "$SEL $C: $(grep 'success_rate=' "$CK/eval_$C.log")"
   done
 done
+python -m cfnbc.hub sync --datasets cube_rollouts             # register the new rollouts before reading them back
 python -m cfnbc.qa --rollouts | tail -1
 python -m cfnbc.scene3d --all_rollouts
 python -m cfnbc.hub sync

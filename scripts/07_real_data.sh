@@ -11,6 +11,7 @@ if [[ ! -d "$DS/meta" ]]; then
 fi
 [[ -d "$ACT_RERUN_DIR/real_demos" ]] || python -m cfnbc.real.ingest --dataset "$DS"
 python -m cfnbc.real.qa_real
+python -m cfnbc.hub sync --datasets real_demos               # register the ingested episodes before reading them back
 python -m cfnbc.real.repair_real --pad
 python -m cfnbc.hub sync --datasets real_demos
 [[ -d "$ROOT/data_real/act_cups_open" ]] || python -m cfnbc.real.to_hdf5          # ACT's HDF5 layout, for its own trainer
